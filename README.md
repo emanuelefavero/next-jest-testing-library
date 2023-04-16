@@ -46,6 +46,14 @@ npx create-next-app --example with-jest .
 npm test
 ```
 
+### Jest commands
+
+- `jest --watch` - run tests in watch mode
+- `jest --watchAll` - run all tests in watch mode
+- `jest` - run all tests and exit
+- `jest --coverage` - run tests with coverage report
+- `jest --watch --coverage` - run tests in watch mode with coverage report
+
 &nbsp;
 
 ---
