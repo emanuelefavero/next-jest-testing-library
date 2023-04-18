@@ -192,4 +192,14 @@ Testing Library suggest to follow accessibility guidelines when writing tests. T
 
 &nbsp;
 
+## License
+
+- [MIT](LICENSE.md)
+
+&nbsp;
+
+---
+
+&nbsp;
+
 [**Go To Top &nbsp; ⬆️**](#how-to-use)
