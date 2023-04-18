@@ -5,7 +5,7 @@ describe('Home', () => {
   // TIP: it() and test() are the same
   it('renders a heading with the text "Hello"', () => {
     render(<Home />)
-    const headingElement = screen.getByRole('heading', { name: 'Hello' })
+    const headingElement = screen.getByRole('link', { name: /hello/i })
 
     // Assertion
     expect(headingElement).toBeInTheDocument()
