@@ -8,6 +8,8 @@ export default function Home() {
       <Link href='color-button'>color-button</Link>
       <br />
       <Link href='get-by-test-id'>get-by-test-id</Link>
+      <br />
+      <Link href='checkbox-button'>checkbox-button</Link>
     </>
   )
 }
