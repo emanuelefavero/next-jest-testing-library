@@ -185,3 +185,11 @@ Testing Library suggest to follow accessibility guidelines when writing tests. T
 - [Testing Library Order of Priority](https://testing-library.com/docs/queries/about/#priority)
 - [w3c Accessibility Roles](https://www.w3.org/TR/wai-aria/#role_definitions)
 - [getByTestId](https://testing-library.com/docs/queries/bytestid/)
+
+&nbsp;
+
+---
+
+&nbsp;
+
+[**Go To Top &nbsp; ⬆️**](#how-to-use)
