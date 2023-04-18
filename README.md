@@ -62,7 +62,31 @@ npm test
 
 ## How does Jest watch mode work?
 
-In watch mode, Jest will run all tests that have changed since the last commit. If you want to run all tests, you can press `a` to run all tests.
+- Jest will run all tests that have changed since the last commit. If you want to run all tests, you can press `a` to run all tests.
+- When a file is saved or a test file is changed, Jest will re-run the tests
+
+> Note: If there are **no changes since the last commit**, **no tests will run**.
+
+&nbsp;
+
+---
+
+&nbsp;
+
+## TDD (Test Driven Development)
+
+- Write tests before writing code
+- Write the minimum amount of code to make the tests pass
+- Refactor code as needed
+
+> Note: Its is called "red-green" testing because the test initially fails (red) and then passes (green) after the code is written
+
+#### Why TDD?
+
+- You don't need to manually test your code every time you make a change
+- You can refactor your code with confidence because you have tests to make sure nothing breaks
+- Writing tests before the code forces you to think about the code you are writing
+- Writing tests before the code feels part of the process, instead of a "chore" to do at the end
 
 &nbsp;
 
