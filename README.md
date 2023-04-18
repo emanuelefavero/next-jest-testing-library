@@ -1,6 +1,8 @@
 # Next.js + Jest + React Testing Library
 
-This is a Next.js project with Jest and React Testing Library set up
+This is a cheat sheet repo for Next.js + Jest + React Testing Library. Each page is a different topic.
+
+> Note: This is a work in progress, please wait for the live version to be published
 
 &nbsp;
 
