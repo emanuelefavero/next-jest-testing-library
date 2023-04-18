@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/react'
-import Home from './index'
+import TipsPage from './tips'
 
-describe('Home', () => {
+describe('TipsPage', () => {
   // TIP: it() and test() are the same
   it('renders a heading with the text "Hello"', () => {
-    render(<Home />)
-    const headingElement = screen.getByRole('link', { name: /hello/i })
+    render(<TipsPage />)
+    const headingElement = screen.getByRole('heading', { name: 'Hello' })
 
     // Assertion
     expect(headingElement).toBeInTheDocument()
