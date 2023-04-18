@@ -60,6 +60,16 @@ npm test
 
 &nbsp;
 
+## How does Jest watch mode work?
+
+In watch mode, Jest will run all tests that have changed since the last commit. If you want to run all tests, you can press `a` to run all tests.
+
+&nbsp;
+
+---
+
+&nbsp;
+
 ## Resources
 
 - [Next.js Testing](https://nextjs.org/docs/testing)
