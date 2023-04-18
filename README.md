@@ -141,6 +141,40 @@ Testing Library suggest to follow accessibility guidelines when writing tests. T
 
 &nbsp;
 
+## js-dom Custom Matchers
+
+> See: [https://github.com/testing-library/jest-dom](https://github.com/testing-library/jest-dom)
+
+- toBeDisabled
+- toBeEnabled
+- toBeEmptyDOMElement
+- toBeInTheDocument
+- toBeInvalid
+- toBeRequired
+- toBeValid
+- toBeVisible
+- toContainElement
+- toContainHTML
+- toHaveAccessibleDescription
+- toHaveAccessibleName
+- toHaveAttribute
+- toHaveClass
+- toHaveFocus
+- toHaveFormValues
+- toHaveStyle
+- toHaveTextContent
+- toHaveValue
+- toHaveDisplayValue
+- toBeChecked
+- toBePartiallyChecked
+- toHaveErrorMessage
+
+&nbsp;
+
+---
+
+&nbsp;
+
 ## Resources
 
 - [Next.js Testing](https://nextjs.org/docs/testing)
