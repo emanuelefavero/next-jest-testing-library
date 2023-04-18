@@ -81,7 +81,7 @@ npm test
 
 > Note: Its is called "red-green" testing because the test initially fails (red) and then passes (green) after the code is written
 
-#### Why TDD?
+### Why TDD?
 
 - You don't need to manually test your code every time you make a change
 - You can refactor your code with confidence because you have tests to make sure nothing breaks
@@ -94,6 +94,55 @@ npm test
 
 &nbsp;
 
+## Unit Testing vs Functional Testing
+
+#### **Unit testing** - tests individual units of code
+
+| Pros                      | Cons                                |
+| ------------------------- | ----------------------------------- |
+| Mock dependencies         | Further from how users interact     |
+| Easy to pinpoint failures | More likely to break in refactoring |
+
+#### **Functional testing** - tests how the app works from the user's perspective
+
+| Pros                        | Cons                    |
+| --------------------------- | ----------------------- |
+| Close to how users interact | More difficult to debug |
+| Robust tests                |                         |
+
+> Note: react-testing-library is a functional testing library
+
+&nbsp;
+
+---
+
+&nbsp;
+
+## Testing Library Order of Priority
+
+Testing Library suggest to follow accessibility guidelines when writing tests. This means that you should use the following order of priority when querying the DOM:
+
+- getByRole
+- getByLabelText
+- getByPlaceholderText
+- getByText - _for non interactive elements_
+- getByDisplayValue
+- getByAltText
+- getByTitle
+- getByTestId
+
+### Accessibility Roles
+
+- alert, alertdialog, application, article, banner, button, checkbox, columnheader, combobox, complementary, contentinfo, definition, dialog, directory, document, form, grid, gridcell, group, heading, img, link, list, listbox, listitem, log, main, marquee, math, menu, menubar, menuitem, menuitemcheckbox, menuitemradio, navigation, none, note, option, presentation, progressbar, radio, radiogroup, region, row, rowgroup, rowheader, scrollbar, search, searchbox, separator, slider, spinbutton, status, tab, tablist, tabpanel, textbox, timer, toolbar, tooltip, tree, treegrid, treeitem
+
+&nbsp;
+
+---
+
+&nbsp;
+
 ## Resources
 
 - [Next.js Testing](https://nextjs.org/docs/testing)
+- [Testing Library Order of Priority](https://testing-library.com/docs/queries/about/#priority)
+- [w3c Accessibility Roles](https://www.w3.org/TR/wai-aria/#role_definitions)
