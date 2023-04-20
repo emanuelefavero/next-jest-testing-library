@@ -12,6 +12,8 @@ export default function Home() {
       <Link href='checkbox-button'>checkbox-button</Link>
       <br />
       <Link href='to-have-class'>to-have-class</Link>
+      <br />
+      <Link href='sundaes-on-demand'>sundaes-on-demand</Link>
     </>
   )
 }
