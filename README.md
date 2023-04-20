@@ -63,6 +63,16 @@ npm install --save-dev eslint-plugin-testing-library eslint-plugin-jest-dom
 
 > Note: Check the `.eslintrc.json` file in this repo for a full example
 
+- be sure to have this rule on your `settings.json` file in vscode:
+
+```json
+"editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
+```
+
+> Note: You can either put this on your global settings or on your project settings by adding a `.vscode` folder to your project and adding a `settings.json` file inside it
+
 &nbsp;
 
 ---
