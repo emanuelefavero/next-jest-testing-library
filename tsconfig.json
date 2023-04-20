@@ -19,6 +19,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "types.d.ts", "pages/tips.test.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "types.d.ts", "pages/tips.test.tsx", "utils/convertPascalCaseToSeparateWords.ts"],
   "exclude": ["node_modules"]
 }
