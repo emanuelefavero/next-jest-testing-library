@@ -10,7 +10,8 @@
   "dependencies": {
     "next": "latest",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "sass": "^1.62.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "5.16.4",

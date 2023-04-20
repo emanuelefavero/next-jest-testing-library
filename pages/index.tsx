@@ -10,6 +10,8 @@ export default function Home() {
       <Link href='get-by-test-id'>get-by-test-id</Link>
       <br />
       <Link href='checkbox-button'>checkbox-button</Link>
+      <br />
+      <Link href='to-have-class'>to-have-class</Link>
     </>
   )
 }
