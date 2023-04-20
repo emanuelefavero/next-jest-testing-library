@@ -42,6 +42,33 @@ npx create-next-app --example with-jest .
 
 &nbsp;
 
+## Configure eslint with Jest and React Testing Library
+
+> Note: For this to work you should already have eslint installed and configured in your project byt choosing it during the `create-next-app` setup
+
+- install eslint plugins for jest and react-testing-library:
+
+```bash
+npm install --save-dev eslint-plugin-testing-library eslint-plugin-jest-dom
+```
+
+- add the following to your `.eslintrc` file:
+
+```json
+{
+  "plugins": ["testing-library", "jest-dom"],
+  "extends": ["plugin:testing-library/react"]
+}
+```
+
+> Note: Check the `.eslintrc.json` file in this repo for a full example
+
+&nbsp;
+
+---
+
+&nbsp;
+
 ## Run Jest Tests
 
 ```bash
