@@ -3,23 +3,25 @@ import { logRoles } from '@testing-library/dom'
 import ColorButtonPage from './color-button'
 
 describe('ColorButtonPage', () => {
-  test('button should toggle between red and blue when clicked', () => {
+  test('button should toggle between Crimson and MidnightBlue when clicked', () => {
     render(<ColorButtonPage />)
-    const button = screen.getByRole('button', { name: 'Change to blue' })
+    const button = screen.getByRole('button', {
+      name: 'Change to Midnight Blue',
+    })
 
     // Check initial state
-    expect(button).toHaveStyle({ backgroundColor: 'red' })
-    expect(button).toHaveTextContent('Change to blue')
+    expect(button).toHaveStyle({ backgroundColor: 'Crimson' })
+    expect(button).toHaveTextContent('Change to Midnight Blue')
 
     // Check new state after first click
     fireEvent.click(button)
-    expect(button).toHaveStyle({ backgroundColor: 'blue' })
-    expect(button).toHaveTextContent('Change to red')
+    expect(button).toHaveStyle({ backgroundColor: 'MidnightBlue' })
+    expect(button).toHaveTextContent('Change to Crimson')
 
     // Check new state after second click
     fireEvent.click(button)
-    expect(button).toHaveStyle({ backgroundColor: 'red' })
-    expect(button).toHaveTextContent('Change to blue')
+    expect(button).toHaveStyle({ backgroundColor: 'Crimson' })
+    expect(button).toHaveTextContent('Change to Midnight Blue')
   })
 
   // TIP: logRoles() is a function from @testing-library/dom that will help you debug your tests by logging the elements and their roles

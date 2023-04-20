@@ -1,8 +1,9 @@
 import { useState } from 'react'
+import convertPascalCaseToSeparateWords from '@/utils/convertPascalCaseToSeparateWords'
 
 export default function ColorButtonPage() {
-  const [color, setColor] = useState('red')
-  const newColor = color === 'red' ? 'blue' : 'red'
+  const [color, setColor] = useState('Crimson')
+  const newColor = color === 'Crimson' ? 'MidnightBlue' : 'Crimson'
 
   return (
     <>
@@ -12,7 +13,7 @@ export default function ColorButtonPage() {
         }}
         onClick={() => setColor(newColor)}
       >
-        Change to {newColor}
+        Change to {convertPascalCaseToSeparateWords(newColor)}
       </button>
     </>
   )
