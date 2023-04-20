@@ -6,9 +6,12 @@ export default function CheckboxButton() {
     <>
       <input
         type='checkbox'
-        checked={isChecked}
+        id='disable-button-checkbox'
+        // defaultChecked is used to set the initial state of the checkbox
+        defaultChecked={isChecked}
         onChange={() => setIsChecked(!isChecked)}
       />
+      <label htmlFor='disable-button-checkbox'>Disable button</label>
       <button
         disabled={isChecked}
         style={

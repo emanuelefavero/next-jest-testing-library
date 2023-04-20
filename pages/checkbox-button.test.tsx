@@ -2,10 +2,12 @@ import { render, screen, fireEvent } from '@testing-library/react'
 import CheckboxButton from './checkbox-button'
 
 describe('CheckboxButton', () => {
-  test('button should toggle between enabled and disabled when checkbox is checked and unchecked', () => {
+  test('when checkbox is checked, button should be disabled', () => {
     render(<CheckboxButton />)
-    // TIP: Add a data-testid to the checkbox if you need to be more specific
-    const checkbox = screen.getByRole('checkbox')
+    // get the checkbox from its label text "Disable button"
+    const checkbox = screen.getByRole('checkbox', {
+      name: 'Disable button',
+    })
     const button = screen.getByRole('button', { name: 'Button' })
 
     // Check initial state (before checkbox is checked) - check that the button is enabled
