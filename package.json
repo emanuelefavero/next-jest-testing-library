@@ -8,10 +8,13 @@
     "test:ci": "jest --ci"
   },
   "dependencies": {
+    "bootstrap": "^5.2.3",
     "eslint-plugin-jest-dom": "^4.0.3",
     "eslint-plugin-testing-library": "^5.10.3",
     "next": "latest",
+    "next-router-mock": "^0.9.3",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.7.4",
     "react-dom": "^18.2.0",
     "sass": "^1.62.0"
   },

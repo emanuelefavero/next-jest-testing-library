@@ -1,21 +1,10 @@
 /* DEFAULT STYLING */
 :root {
-  --color-background: #0f1622;
-  --color-primary: rgb(192, 66, 255);
-  --color-primary-darker: rgb(80, 20, 113);
-  --color-selection: rgba(207, 92, 252, 0.25);
-  --color-p: #bbc2d8;
-
   /* Font rendering, smoothing, adjusting */
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-}
-
-::selection {
-  background-color: var(--color-selection);
-  /* color: #fff; */
 }
 
 *,
@@ -28,17 +17,14 @@
 }
 
 /* THEME */
-html {
+/* html {
   color-scheme: dark light;
-}
+} */
 
 body {
   font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Inter', 'SF Pro',
     'San Francisco Pro', 'Helvetica Neue', Helvetica, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', sans-serif;
-
-  background-color: var(--color-background);
-  color: #fff;
 
   min-height: 100vh;
 
@@ -83,50 +69,11 @@ a:active {
   outline: none;
 }
 
-/* active element outline */
-:focus {
-  outline: 2px solid var(--color-primary);
-}
-
-ul,
-li {
-  list-style: none;
-}
-
-a {
-  color: var(--color-primary);
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
 button {
+  border: none;
+  background: none;
   cursor: pointer;
-  border: 1px solid var(--color-primary);
-  outline: none;
-
-  background-color: #000;
-  background-color: var(--color-primary-darker);
+  padding: 0.5rem 1rem;
   color: #fff;
-
-  font-size: 1.15rem;
-  padding: 0.2rem 1rem;
-  border-radius: 6px;
+  background: #000;
 }
-
-button:hover {
-  background-color: var(--color-primary);
-  color: white;
-}
-
-p {
-  color: var(--color-p);
-}
-
-/* DARK MODE */
-/* @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-} */
