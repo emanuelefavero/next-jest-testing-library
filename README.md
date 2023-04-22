@@ -216,10 +216,56 @@ Testing Library suggest to follow accessibility guidelines when writing tests. T
 
 &nbsp;
 
+## userEvent
+
+`userEvent` is a library that provides a set of utilities to simulate user interactions with the DOM. It is a wrapper around `fireEvent` that provides a more natural API for interacting with the DOM.
+
+> Note: `userEvent` always returns a Promise, so you must use `await` with it
+
+### userEvent Usage
+
+```js
+// ... other imports
+import userEvent from '@testing-library/user-event'
+
+describe('Component', () => {
+  it('should do something', async () => {
+    // NOTE: Setup userEvent
+    const user = userEvent.setup()
+
+    render(<Component />)
+    const button = screen.getByRole('button')
+
+    await user.click(checkbox)
+  })
+})
+```
+
+> Read This for more info: [https://testing-library.com/docs/ecosystem-user-event/](https://testing-library.com/docs/ecosystem-user-event/)
+
+### userEvent methods
+
+- `userEvent.click(element)` - click an element
+- `userEvent.hover(element)` - hover over an element
+- `userEvent.unhover(element)` - unhover over an element
+- `userEvent.type(element, text)` - type text into an element
+- `userEvent.clear(element)` - clear text from an input or textarea
+- `userEvent.selectOptions(element, values)` - select options in a select element
+- `userEvent.upload(element, fileOrFiles)` - upload a file or files to an element
+- `userEvent.tab()` - tab to the next focusable element
+- `userEvent.keyboard(text)` - type text using the keyboard
+
+&nbsp;
+
+---
+
+&nbsp;
+
 ## Resources
 
 - [Next.js Testing](https://nextjs.org/docs/testing)
 - [Testing Library Cheat Sheet](https://testing-library.com/docs/react-testing-library/cheatsheet/)
+- [userEvent](https://testing-library.com/docs/ecosystem-user-event/)
 - [Testing Library Order of Priority](https://testing-library.com/docs/queries/about/#priority)
 - [w3c Accessibility Roles](https://www.w3.org/TR/wai-aria/#role_definitions)
 - [getByTestId](https://testing-library.com/docs/queries/bytestid/)
@@ -241,3 +287,7 @@ Testing Library suggest to follow accessibility guidelines when writing tests. T
 &nbsp;
 
 [**Go To Top &nbsp; ⬆️**](#how-to-use)
+
+```
+
+```
