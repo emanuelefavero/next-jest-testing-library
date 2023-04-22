@@ -34,11 +34,9 @@ export default function SummaryForm() {
             setChecked(!checked)
             setDisabled(!disabled)
           }}
-          id='i-agree-to-terms-and-conditions'
+          id='terms-and-conditions'
         />
-        <Form.Label htmlFor='i-agree-to-terms-and-conditions'>
-          {checkboxLabel}
-        </Form.Label>
+        <Form.Label htmlFor='terms-and-conditions'>{checkboxLabel}</Form.Label>
 
         <Button variant='primary' disabled={disabled} type='submit'>
           Confirm order

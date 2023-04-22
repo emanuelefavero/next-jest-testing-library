@@ -5,7 +5,7 @@ describe('SummaryForm', () => {
   test('checkbox is unchecked by default, checking the checkbox enables the button, unchecking the checkbox disables the button', () => {
     render(<SummaryForm />)
     const checkbox = screen.getByRole('checkbox', {
-      name: /I agree to Terms and Conditions/i,
+      name: /terms and conditions/i,
     })
     const button = screen.getByRole('button', { name: /Confirm order/i })
 
