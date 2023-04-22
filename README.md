@@ -219,6 +219,7 @@ Testing Library suggest to follow accessibility guidelines when writing tests. T
 ## Resources
 
 - [Next.js Testing](https://nextjs.org/docs/testing)
+- [Testing Library Cheat Sheet](https://testing-library.com/docs/react-testing-library/cheatsheet/)
 - [Testing Library Order of Priority](https://testing-library.com/docs/queries/about/#priority)
 - [w3c Accessibility Roles](https://www.w3.org/TR/wai-aria/#role_definitions)
 - [getByTestId](https://testing-library.com/docs/queries/bytestid/)
