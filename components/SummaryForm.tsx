@@ -15,7 +15,7 @@ export default function SummaryForm() {
         placement='top'
         overlay={
           <Tooltip data-testid='terms-and-conditions-tooltip'>
-            Those are our Terms and Conditions...
+            No ice cream will actually be delivered
           </Tooltip>
         }
       >

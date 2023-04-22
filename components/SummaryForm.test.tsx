@@ -30,17 +30,25 @@ describe('SummaryForm', () => {
   })
 
   test('popover responds to hover', async () => {
+    render(<SummaryForm />)
+
     const user = userEvent.setup()
 
-    render(<SummaryForm />)
-    const popover = screen.queryByText(/Those are our Terms and Conditions.../i)
-    const popoverTrigger = screen.getByText(/Terms and Conditions/i)
+    // * popover starts out hidden
+    // NOTE: We are using queryBy* here because we expect the element to not be there
+    const nullPopover = screen.queryByText(
+      /no ice cream will actually be delivered/i
+    )
+    expect(nullPopover).not.toBeInTheDocument()
 
-    // popover starts out hidden
+    // * popover appears upon mouseover of checkbox label
+    const termsAndConditions = screen.getByText(/terms and conditions/i)
+    await user.hover(termsAndConditions)
+    const popover = screen.getByText(/no ice cream will actually be delivered/i)
+    expect(popover).toBeInTheDocument()
+
+    // * popover disappears when we mouse out
+    await user.unhover(termsAndConditions)
     expect(popover).not.toBeInTheDocument()
-
-    // popover appears upon mouseover of checkbox label
-
-    // popover disappears when we mouse out
   })
 })

@@ -1,8 +1,8 @@
 # Next.js + Jest + React Testing Library
 
-This is a cheat sheet repo for Next.js + Jest + React Testing Library. Each page is a different topic.
+This is a cheat sheet repo for Next.js + Jest + React Testing Library. Each page is a different topic
 
-> Note: This is a work in progress, please wait for the live version to be published
+> Note: Check [this page](https://testing-library.com/docs/dom-testing-library/cheatsheet/) for a quick cheat sheet from the official react testing library docs
 
 &nbsp;
 
@@ -328,6 +328,7 @@ describe('Component', () => {
 - [Next.js Testing](https://nextjs.org/docs/testing)
 - [Testing Library Cheat Sheet](https://testing-library.com/docs/react-testing-library/cheatsheet/)
 - [userEvent](https://testing-library.com/docs/ecosystem-user-event/)
+- [Testing Library Queries](https://testing-library.com/docs/queries/about/)
 - [Testing Library Order of Priority](https://testing-library.com/docs/queries/about/#priority)
 - [w3c Accessibility Roles](https://www.w3.org/TR/wai-aria/#role_definitions)
 - [getByTestId](https://testing-library.com/docs/queries/bytestid/)
