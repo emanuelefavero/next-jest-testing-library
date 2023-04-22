@@ -1,3 +1,10 @@
+import { SummaryForm } from '@/components'
+
 export default function OrderSummary() {
-  return <div>OrderSummary</div>
+  return (
+    <>
+      <h1>Order Summary</h1>
+      <SummaryForm />
+    </>
+  )
 }
