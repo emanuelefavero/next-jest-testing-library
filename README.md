@@ -157,20 +157,82 @@ npm test
 
 &nbsp;
 
+## render method
+
+#### import render
+
+```js
+import { render } from '@testing-library/react'
+import Component from './Component'
+```
+
+### use render
+
+```js
+render(<Component />)
+```
+
+&nbsp;
+
+---
+
+&nbsp;
+
+## Testing Library screen methods
+
+#### import screen
+
+```js
+import { screen } from '@testing-library/react'
+```
+
+### use screen
+
+```js
+const button = screen.getByRole('button')
+```
+
+#### Commands
+
+> e.g. `screen.queryByRole('button')` - returns a single element
+
+- `get` - expect an element to be in the DOM
+- `query` - expect an element not to be in DOM (useful for popovers etc...), returns null if not found
+- `find` - expect an element to be in the DOM, but wait for it to appear (useful for async data)
+
+#### All
+
+> e.g. `getAllByRole('button')` - returns an array of all buttons in the DOM
+
+Add `All` to the command to return an array of elements
+
+#### Query Type
+
+> e.g. `getByRole('button')`
+
+- `ByRole` - query by role
+- `ByLabelText` - query by label text
+- `ByPlaceholderText` - query by placeholder text
+- `ByText` - query by text
+- `ByDisplayValue` - query by display value
+- `ByAltText` - query by alt text
+- `ByTitle` - query by title
+- `ByTestId` - query by test id
+
 ## Testing Library Order of Priority
 
 Testing Library suggest to follow accessibility guidelines when writing tests. This means that you should use the following order of priority when querying the DOM:
 
-- getByRole
-- getByLabelText
-- getByPlaceholderText
-- getByText - _for non interactive elements_
-- getByDisplayValue
-- getByAltText
-- getByTitle
-- getByTestId
+- `getByRole('button', { name: /click me/i })`
+- `getByLabelText('First Name')`
+- `getByPlaceholderText('Enter your first name')`
+- `getByText('Click me')`
+- `getByDisplayValue('John')`
+- `getByAltText('Profile picture')`
+- `getByTitle('Close')`
+- `getByTestId('my-element')`
 
-> Note: You should only use getByTestId as a last resort. Assign data-testid='my-element' to the element that you need to find
+> Note: You should only use `getByTestId` as a last resort. Assign `data-testid='my-element'` to the element that you need to find
 
 ### Accessibility Roles
 
