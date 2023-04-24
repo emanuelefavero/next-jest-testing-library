@@ -1,11 +1,12 @@
 import { render, screen } from '@testing-library/react'
-import Options from './options'
+import Options from './Options'
 
 test('displays image for each scoop option from server', async () => {
   render(<Options optionType='scoops' />)
 
   // find images
-  const scoopImages = await screen.getAllByRole('img', { name: /scoop$/i })
+  // NOTE: Every time we try to get data that is rendered from a fetch request (such as scoopImages), we need to use await and findBy*
+  const scoopImages = await screen.findAllByRole('img', { name: /scoop$/i })
   // TIP: $ means ends with (we're looking for images alt attributes that ends with 'scoop')
   expect(scoopImages).toHaveLength(2)
 
