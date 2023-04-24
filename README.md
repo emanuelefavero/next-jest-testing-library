@@ -323,6 +323,102 @@ describe('Component', () => {
 
 &nbsp;
 
+## Mock Service Worker
+
+Mock Service Worker (MSW) is a service worker based library that allows you to intercept network requests and mock responses.
+
+### Install
+
+> See: [https://mswjs.io/docs/getting-started/install](https://mswjs.io/docs/getting-started/install)
+
+```bash
+npm install msw --save-dev
+```
+
+### Setup
+
+> See: [https://mswjs.io/docs/getting-started/integrate/node](https://mswjs.io/docs/getting-started/integrate/node)
+
+- Add the following to `jest.setup.js`
+
+```js
+import { server } from './mocks/server'
+// Establish API mocking before all tests.
+beforeAll(() => server.listen())
+
+// Reset any request handlers that we may add during the tests,
+// so they don't affect other tests.
+afterEach(() => server.resetHandlers())
+
+// Clean up after the tests are finished.
+afterAll(() => server.close())
+
+// TIP: This file is similar to setupTests.js from create-react-ap
+```
+
+> Note: Make sure to have imported `jest.setup.js` in `jest.config.js` like so `setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],`
+
+### Usage
+
+> See: [https://mswjs.io/docs/getting-started/mocks/rest-api](https://mswjs.io/docs/getting-started/mocks/rest-api)
+
+- Create a `mocks` folder in the root of your project
+- Create a `server.js` file in the `mocks` folder
+- Add the following to `server.js`
+
+```js
+import { setupServer } from 'msw/node'
+import { handlers } from './handlers'
+
+// This configures a request mocking server with the given request handlers.
+export const server = setupServer(...handlers)
+```
+
+- Create a `handlers.js` file in the `mocks` folder
+- Add the following to `handlers.js`
+
+```js
+import { rest } from 'msw'
+import { apiURL } from '@/config'
+
+export const handlers = [
+  rest.get(`${apiURL}/scoops`, (req, res, ctx) => {
+    return res(
+      ctx.json([
+        { name: 'Chocolate', imagePath: '/images/chocolate.png' },
+        { name: 'Vanilla', imagePath: '/images/vanilla.png' },
+      ])
+    )
+  }),
+  // ... other handlers
+]
+```
+
+- Now you can get fetched data from your mock server in your test files by using `await` and `findBy*` queries
+
+```js
+import { render, screen } from '@testing-library/react'
+import Options from './Options'
+
+test('my test', async () => {
+  render(<Options optionType='scoops' />)
+
+  const scoopImages = await screen.findAllByRole('img', { name: /scoop$/i })
+  expect(scoopImages).toHaveLength(2)
+
+  const altTextArray = scoopImages.map((element: any) => element.alt)
+  expect(altTextArray).toEqual(['Chocolate scoop', 'Vanilla scoop'])
+})
+```
+
+**HOW DOES IT WORK?** When we run the test, if the component makes a request to the server, the request will be intercepted by Mock Service Worker (that we setup in jest.setup.js) and it will check if there is a handler for that same request (same url). IF there is, the mock request will be used instead of the real request
+
+&nbsp;
+
+---
+
+&nbsp;
+
 ## Resources
 
 - [Next.js Testing](https://nextjs.org/docs/testing)
@@ -332,6 +428,7 @@ describe('Component', () => {
 - [Testing Library Order of Priority](https://testing-library.com/docs/queries/about/#priority)
 - [w3c Accessibility Roles](https://www.w3.org/TR/wai-aria/#role_definitions)
 - [getByTestId](https://testing-library.com/docs/queries/bytestid/)
+- [Mock Service Worker](https://mswjs.io/docs/getting-started/install)
 
 &nbsp;
 
@@ -350,6 +447,14 @@ describe('Component', () => {
 &nbsp;
 
 [**Go To Top &nbsp; ⬆️**](#how-to-use)
+
+```
+
+```
+
+```
+
+```
 
 ```
 
