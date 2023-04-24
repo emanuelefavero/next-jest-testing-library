@@ -28,14 +28,16 @@ export default function Options({ optionType }: Props) {
   const ItemComponent = optionType === 'scoops' ? ScoopOption : ToppingOption
 
   return (
-    <Row>
-      {items.map((item: Item) => (
-        <ItemComponent
-          key={item.name}
-          name={item.name}
-          imagePath={item.imagePath}
-        />
-      ))}
-    </Row>
+    <>
+      <Row>
+        {items.map((item: Item) => (
+          <ItemComponent
+            key={item.name}
+            name={item.name}
+            imagePath={item.imagePath}
+          />
+        ))}
+      </Row>
+    </>
   )
 }
