@@ -93,6 +93,29 @@ npm test
 - `jest --coverage` - run tests with coverage report
 - `jest --watch --coverage` - run tests in watch mode with coverage report
 
+#### Jest watch mode commands
+
+- `f` - run only failed tests
+- `o` - run only tests related to changed files
+- `p` - filter by a filename regex pattern
+- `t` - filter by a test name regex pattern
+- `q` - quit watch mode
+- `Enter` - trigger a test run
+- `a` - run all tests
+
+#### Jest test.only() and test.skip()
+
+- `test.only()` - run only this test
+- `test.skip()` - skip this test
+
+Example:
+
+```js
+test.only('should render...', () => {
+  // ...
+})
+```
+
 &nbsp;
 
 ---
