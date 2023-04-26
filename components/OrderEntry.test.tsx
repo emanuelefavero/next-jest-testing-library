@@ -1,4 +1,7 @@
-import { render, screen, waitFor } from '@testing-library/react'
+// * NOTE: We have created a custom render to render the component with the OrderDetailsProvider wrapper
+// @see https://testing-library.com/docs/react-testing-library/setup
+// The only change we did here is that instead of importing from @testing-library/react we are importing from our @/test-utils.tsx file
+import { render, screen, waitFor } from '@/test-utils'
 import OrderEntry from './OrderEntry'
 import { rest } from 'msw'
 import { server } from '@/mocks/server'
