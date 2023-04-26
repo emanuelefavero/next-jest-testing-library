@@ -442,6 +442,45 @@ test('my test', async () => {
 
 &nbsp;
 
+## Simulate Server Error Response
+
+- use `server.resetHandlers()` to setup a new behavior (e.g. return an error) for a route
+
+```js
+import { render, screen, waitFor } from '@testing-library/react'
+import { rest } from 'msw'
+import { server } from '@/mocks/server'
+import { apiURL } from '@/config'
+import Component from './Component'
+
+test('test error', async () => {
+  // setup the server to return an error for this route
+  server.resetHandlers(
+    rest.get(`${apiURL}/scoops`, (req, res, ctx) => {
+      return res(ctx.status(500))
+    })
+  )
+
+  render(<Component />)
+
+  // wait for the error message to show up
+  await waitFor(async () => {
+    const alerts = await screen.findAllByRole('alert')
+    expect(alerts).toHaveLength(1)
+  })
+})
+```
+
+> Note: See Mock Service Worker section on this page for more info on how to setup the server
+>
+> TIP: you still need to add the error handling logic in your component
+
+&nbsp;
+
+---
+
+&nbsp;
+
 ## Resources
 
 - [Next.js Testing](https://nextjs.org/docs/testing)
@@ -470,6 +509,10 @@ test('my test', async () => {
 &nbsp;
 
 [**Go To Top &nbsp; ⬆️**](#how-to-use)
+
+```
+
+```
 
 ```
 
