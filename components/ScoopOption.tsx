@@ -39,6 +39,7 @@ export default function ScoopOption({ name, imagePath }: Props) {
           <Form.Control
             type='number'
             defaultValue={0}
+            min={0}
             onChange={handleChange}
           />
         </Col>
