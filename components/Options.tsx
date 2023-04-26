@@ -26,6 +26,7 @@ export default function Options({ optionType }: Props) {
   const [error, setError] = useState(false)
   const { totals } = useOrderDetails()
 
+  // optionType is 'scoops' or 'toppings
   useEffect(() => {
     axios
       .get(`${apiURL}/${optionType}`)
@@ -38,6 +39,14 @@ export default function Options({ optionType }: Props) {
   const ItemComponent = optionType === 'scoops' ? ScoopOption : ToppingOption
   const title = optionType[0].toUpperCase() + optionType.slice(1).toLowerCase()
 
+  const optionItems = items.map((item) => (
+    <ItemComponent
+      key={item.name}
+      name={item.name}
+      imagePath={item.imagePath}
+    />
+  ))
+
   return (
     <>
       <h2>{title}</h2>
@@ -45,15 +54,7 @@ export default function Options({ optionType }: Props) {
       <p>
         {title} total: {formatCurrency(totals[optionType])}
       </p>
-      <Row>
-        {items.map((item: Item) => (
-          <ItemComponent
-            key={item.name}
-            name={item.name}
-            imagePath={item.imagePath}
-          />
-        ))}
-      </Row>
+      <Row>{optionItems}</Row>
     </>
   )
 }
