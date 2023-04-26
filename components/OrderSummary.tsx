@@ -7,18 +7,19 @@ export default function OrderSummary() {
   const { totals, optionCounts } = useOrderDetails()
 
   const scoopArray = Object.entries(optionCounts.scoops)
-  const scoopsList = scoopArray.map(([key, value]) => (
-    <li key={key}>
-      {value as any} {key}
-    </li>
-  ))
+  const scoopsList = scoopArray.map(
+    ([key, value]) =>
+      (value as number) > 0 && (
+        <li key={key}>
+          {value as number} {key}
+        </li>
+      )
+  )
 
   const toppingsArray = Object.entries(optionCounts.toppings)
-  const toppingsList = toppingsArray.map(([key, value]) => (
-    <li key={key}>
-      {value as any} {key}
-    </li>
-  ))
+  const toppingsList = toppingsArray.map(
+    ([key, value]) => (value as number) > 0 && <li key={key}>{key}</li>
+  )
 
   return (
     <>
