@@ -481,6 +481,65 @@ test('test error', async () => {
 
 &nbsp;
 
+## Test components wrapped in a Provider (context)
+
+- To test components that are children of a Provider (components that use context) you need to wrap them with your Provider in your test file during rendering:
+
+```js
+render(<Component />, {
+  wrapper: MyProvider,
+  ...options,
+})
+```
+
+> Note: Since you would need to do so in every test file, it's better to create a custom render function that does this for you. See `test-utils.tsx` file in this project for an example
+
+### Create a custom render function with wrapped context
+
+> See: [https://testing-library.com/docs/react-testing-library/setup](https://testing-library.com/docs/react-testing-library/setup)
+
+- Create a `test-utils.tsx` file in the root of your project or in the `src` folder
+
+```js
+import { render } from '@testing-library/react'
+import { OrderDetailsProvider } from '@/contexts/OrderDetails'
+
+const renderWithContext = (ui: any, options?: any) =>
+  render(ui, {
+    wrapper: OrderDetailsProvider,
+    ...options,
+  })
+
+// re-export everything
+export * from '@testing-library/react'
+
+// override render method with render with context
+export { renderWithContext as render }
+```
+
+- Now you can import your custom render function in your test files:
+
+```js
+// NOTE: you don't need to import render from @testing-library/react anymore
+import { render, screen, waitFor } from '@/test-utils'
+
+test('test', () => {
+  render(<Component />)
+
+  // ...
+})
+```
+
+> Note: As you can see the only thing you need to do is to import your custom render function in `@/test-utils` instead of the one from `@testing-library/react`
+>
+> Note: You can also add other providers to your custom render function
+
+&nbsp;
+
+---
+
+&nbsp;
+
 ## Resources
 
 - [Next.js Testing](https://nextjs.org/docs/testing)
