@@ -28,10 +28,24 @@ export default function Options({ optionType }: Props) {
 
   // optionType is 'scoops' or 'toppings
   useEffect(() => {
+    // * create an abort controller to cancel the request if it takes too long
+    // ? AbortController is a Javascript API that allows you to abort one or more DOM requests as and when desired
+    // ? @see https://developer.mozilla.org/en-US/docs/Web/API/AbortController
+    // ? (it is also needed here to prevent act()... errors during testing)
+    const controller = new AbortController()
+
     axios
-      .get(`${apiURL}/${optionType}`)
+      .get(`${apiURL}/${optionType}`, {
+        // * thanks to the signal property axios now watches for the abort signal and cancels the request when it is received
+        signal: controller.signal,
+      })
       .then((response) => setItems(response.data))
-      .catch((error) => setError(true))
+      .catch((error) => {
+        if (error.name !== 'CanceledError') setError(true)
+      })
+
+    // * abort axios call on component unmount
+    return () => controller.abort()
   }, [optionType])
 
   if (error) return <AlertBanner />
