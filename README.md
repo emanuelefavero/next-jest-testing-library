@@ -540,6 +540,59 @@ test('test', () => {
 
 &nbsp;
 
+## Debugging Tips
+
+- Use `debug()` to log the html of the component to the console
+
+```js
+import { render, screen } from '@testing-library/react'
+
+test('test', async () => {
+  render(<Component />)
+
+  // log the html of the component to the console
+  screen.debug()
+
+  // ...
+})
+```
+
+- Use logRoles(container) to log the roles of the elements in the container to the console
+
+```js
+import { render, screen, logRoles } from '@testing-library/react'
+
+test('test', async () => {
+  const { container }render(<Component />)
+
+  // log the roles of the elements in the container to the console
+  logRoles(container)
+
+  // ...
+})
+```
+
+- Use `console.log()` to log the html of the component to the console
+
+```js
+import { render, screen } from '@testing-library/react'
+
+test('test', async () => {
+  render(<Component />)
+
+  // log the html of the component to the console
+  console.log(screen.getByRole('alert'))
+
+  // ...
+})
+```
+
+&nbsp;
+
+---
+
+&nbsp;
+
 ## Resources
 
 - [Next.js Testing](https://nextjs.org/docs/testing)
