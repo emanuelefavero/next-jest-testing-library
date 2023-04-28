@@ -1,12 +1,32 @@
 import { useState } from 'react'
+import { useRouter } from 'next/router'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Tooltip from 'react-bootstrap/Tooltip'
+import { useOrderDetails } from '@/contexts/OrderDetails'
+import toast, { Toaster } from 'react-hot-toast'
 
 export default function SummaryForm() {
+  // @ts-ignore
+  const { totals } = useOrderDetails()
   const [checked, setChecked] = useState(false)
   const [disabled, setDisabled] = useState(true)
+  const router = useRouter()
+
+  const handleSubmit = (event: any) => {
+    event.preventDefault()
+
+    if (totals.scoops === 0) {
+      toast.error('Please add at least one scoop')
+      return
+    }
+
+    // send order to server or update context with order data
+    // ...
+
+    router.push('/sundaes-on-demand/order-confirmation')
+  }
 
   const checkboxLabel = (
     <>
@@ -26,7 +46,7 @@ export default function SummaryForm() {
 
   return (
     <>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <Form.Check
           type='switch'
           defaultChecked={checked}
@@ -41,7 +61,11 @@ export default function SummaryForm() {
         <Button variant='primary' disabled={disabled} type='submit'>
           Confirm order
         </Button>
+
+        <h1>{totals.scoops}</h1>
       </Form>
+
+      <Toaster position='top-center' reverseOrder={false} />
     </>
   )
 }

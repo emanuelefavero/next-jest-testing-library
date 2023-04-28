@@ -1,6 +1,11 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen } from '@/test-utils'
 import SummaryForm from './SummaryForm'
 import userEvent from '@testing-library/user-event'
+import { useRouter } from 'next/router'
+
+jest.mock('next/router', () => ({
+  useRouter: jest.fn(),
+}))
 
 describe('SummaryForm', () => {
   test('checkbox is unchecked by default, checking the checkbox enables the button, unchecking the checkbox disables the button', async () => {
