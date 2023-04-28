@@ -6,6 +6,12 @@ import OrderEntry from './OrderEntry'
 import { rest } from 'msw'
 import { server } from '@/mocks/server'
 import { apiURL } from '@/config'
+import { useRouter } from 'next/router'
+
+// mock useRouter - jest.fn() returns a mock function (it doesn't do anything, but it is useful to avoid errors)
+jest.mock('next/router', () => ({
+  useRouter: jest.fn(),
+}))
 
 describe('OrderEntry', () => {
   test('handles error for scoops and toppings routes', async () => {

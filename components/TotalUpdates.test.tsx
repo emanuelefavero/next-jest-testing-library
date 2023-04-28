@@ -2,6 +2,12 @@ import { render, screen } from '@/test-utils'
 import userEvent from '@testing-library/user-event'
 import Options from './Options'
 import OrderEntry from './OrderEntry'
+import { useRouter } from 'next/router'
+
+// mock useRouter - jest.fn() returns a mock function (it doesn't do anything, but it is useful to avoid errors)
+jest.mock('next/router', () => ({
+  useRouter: jest.fn(),
+}))
 
 describe('scoops and toppings subtotal', () => {
   test('update scoops subtotal when scoops change', async () => {
