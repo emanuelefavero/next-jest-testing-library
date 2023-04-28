@@ -587,6 +587,22 @@ test('test', async () => {
 })
 ```
 
+- If `getBy*` fail than it is likely that the element is not rendered yet. Use `findBy*` instead
+- userEvent methods always need `await`
+- Use `test.only()` and `test.skip()` to run only one test or skip a test
+
+- Prevent `act()...` warning from showing up in the test console by using unmount
+
+```js
+test('test', async () => {
+  const { unmount } = render(<Component />)
+
+  // ...
+
+  unmount()
+})
+```
+
 &nbsp;
 
 ---
@@ -621,3 +637,7 @@ test('test', async () => {
 &nbsp;
 
 [**Go To Top &nbsp; ⬆️**](#how-to-use)
+
+```
+
+```

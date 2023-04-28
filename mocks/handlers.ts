@@ -31,7 +31,7 @@ export const handlers = [
   }),
 
   rest.post(`${apiURL}/order`, (req, res, ctx) => {
-    const orderNumber = Math.floor(Math.random() * 10000000000)
+    const orderNumber = 1234567890
 
     return res(
       ctx.json({
