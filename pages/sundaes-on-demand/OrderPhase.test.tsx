@@ -3,6 +3,7 @@ import userEvent from '@testing-library/user-event'
 import SundaesOnDemand from './index'
 import { useRouter } from 'next/router'
 
+// mock useRouter - jest.fn() returns a mock function (it doesn't do anything, but it is useful to avoid errors)
 jest.mock('next/router', () => ({
   useRouter: jest.fn(),
 }))
@@ -53,3 +54,8 @@ test('order phases for happy path', async () => {
 })
 
 // ? sad path is when something goes wrong (the user clicks the wrong button, or the wrong order, or goes back, or there is an error)
+
+// TIP: jest.fn() can also be useful when the test has errors related to missing props. You can mock the props with jest.fn():
+{
+  /* <Component prop={jest.fn()} /> */
+}

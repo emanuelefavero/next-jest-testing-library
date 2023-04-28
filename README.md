@@ -609,6 +609,36 @@ test('test', async () => {
 
 &nbsp;
 
+## jest.mock()
+
+Use `jest.mock()` to mock features and avoid errors when running tests
+
+- For example, `jest.mock()` can be used to mock props that are passed to a component
+
+```js
+<Component prop={jest.fn()} />
+```
+
+> Note: `jest.mock()` doesn't actually do anything. It just tells jest to mock the prop to avoid errors
+
+- Another instance is when mocking modules such as `next/router`
+
+```js
+import { useRouter } from 'next/router'
+
+jest.mock('next/router', () => ({
+  useRouter: jest.fn(),
+}))
+```
+
+> Note: This will prevent errors related to `useRouter` not being available in the test environment
+
+&nbsp;
+
+---
+
+&nbsp;
+
 ## Resources
 
 - [Next.js Testing](https://nextjs.org/docs/testing)
